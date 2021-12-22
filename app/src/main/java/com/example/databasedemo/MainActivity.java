@@ -30,7 +30,9 @@ public class MainActivity extends AppCompatActivity {
 
             while (c != null) {
                 Log.i("name", c.getString(nameIndex));
-                Log.i("age", c.getString(ageIndex));
+                Log.i("age", Integer.toString(c.getInt(ageIndex)));
+
+                c.moveToNext();
             }
 
 
