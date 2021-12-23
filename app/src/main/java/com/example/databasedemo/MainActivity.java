@@ -19,12 +19,14 @@ public class MainActivity extends AppCompatActivity {
             SQLiteDatabase myDatabase = this.openOrCreateDatabase("Users", MODE_PRIVATE, null);
             myDatabase.execSQL("CREATE TABLE IF NOT EXISTS users (name VARCHAR, age INT(3))");
 
-           /* myDatabase.execSQL("INSERT INTO users (name, age) VALUES ('Priyank', 24)");
+            /*myDatabase.execSQL("INSERT INTO users (name, age) VALUES ('Priyank', 24)");
             myDatabase.execSQL("INSERT INTO users (name, age) VALUES ('Jay', 32)");
             myDatabase.execSQL("INSERT INTO users (name, age) VALUES ('Kishan', 19)");
             myDatabase.execSQL("INSERT INTO users (name, age) VALUES ('Pranav', 22)");*/
 
-            Cursor c = myDatabase.rawQuery("SELECT * FROM users WHERE name LIKE 'p%' LIMIT 1", null);
+            myDatabase.execSQL("DELETE FROM users WHERE name = 'Pranav'");
+
+            Cursor c = myDatabase.rawQuery("SELECT * FROM users", null);
 
             int nameIndex = c.getColumnIndex("name");
             int ageIndex = c.getColumnIndex("age");
