@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
             myDatabase.execSQL("INSERT INTO users (name, age) VALUES ('Kishan', 19)");
             myDatabase.execSQL("INSERT INTO users (name, age) VALUES ('Pranav', 22)");*/
 
-            Cursor c = myDatabase.rawQuery("SELECT * FROM users WHERE age < 30 AND name='Priyank'", null);
+            Cursor c = myDatabase.rawQuery("SELECT * FROM users WHERE name LIKE 'p%'", null);
 
             int nameIndex = c.getColumnIndex("name");
             int ageIndex = c.getColumnIndex("age");
